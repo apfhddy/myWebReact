@@ -28,3 +28,9 @@
     width: 50%;
 }
 
+.updateDir > span{
+    margin-left: 2%;
+    margin-right: 2%;
+    vertical-align: middle;
+}
+
