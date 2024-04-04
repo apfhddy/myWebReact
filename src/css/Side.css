@@ -1,0 +1,30 @@
+.Side{
+    height: 100%;
+
+}
+.TopSettings{
+    height: 10%;
+}
+
+.Dirs{
+    height: 20%;
+}
+.Files{
+    height: 65%;
+}
+
+.Api-Certified{
+    width: 100%;
+    display: flex;
+
+}
+.Api-Certified > form > span{
+    margin-left: 0.3%;
+    margin-right: 0.3%;
+    vertical-align: middle;
+}
+
+.Api-Input{
+    width: 50%;
+}
+

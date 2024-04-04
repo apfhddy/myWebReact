@@ -7,19 +7,17 @@
 .App > header{
     font-size: 30px;
     font-weight: bold;
-    margin-bottom: 1%;
+    height: 7%;
 }
 .App > main{
     display: flex;
     height: 90%;
 }
 .App > main > div:nth-child(1){
-    width: 19.5%; 
+    width: 13.5%; 
     margin-right: 0.5%;
-    background-color: red;
 }
 .App > main > div:nth-child(2){
-    width: 79.5%;
+    width: 85.5%;
     margin-left: 0.5%;
-    background-color: blue;
 }
