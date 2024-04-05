@@ -1,6 +1,6 @@
 .Side{
     height: 100%;
-
+    position: fixed;
 }
 .TopSettings{
     height: 10%;

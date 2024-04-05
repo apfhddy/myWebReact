@@ -122,7 +122,7 @@ function Dirs(props){
                         Dir
                     </span>
                     <span><input type='button' value={"Open"} onClick={()=>{
-                        console.log('hi')
+                        props.setPop('dir');
                     }}/></span>
                 </form>
             </div>
@@ -154,7 +154,7 @@ function Side(props){
     return (
         <div className='Side'>
             <TopSettings JDK_VER={default_version} apiKey={props.apiKey} setApiKey={props.setApiKey} onChangeMode={function(version){setVersion(version);}}/>
-            <Dirs JDK_VER={default_version} apiKey={props.apiKey} setBody={props['setBody']}/>
+            <Dirs setPop={props.setPop} JDK_VER={default_version} apiKey={props.apiKey} setBody={props['setBody']}/>
             <Files/>
         </div>
     )
