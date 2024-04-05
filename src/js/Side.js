@@ -146,15 +146,15 @@ function Dirs(props){
 
 
 function Side(props){
-    let [default_version,setVersion] = useState(8); 
+    
 
 
 
 
     return (
         <div className='Side'>
-            <TopSettings JDK_VER={default_version} apiKey={props.apiKey} setApiKey={props.setApiKey} onChangeMode={function(version){setVersion(version);}}/>
-            <Dirs setPop={props.setPop} JDK_VER={default_version} apiKey={props.apiKey} setBody={props['setBody']}/>
+            <TopSettings JDK_VER={props.version} apiKey={props.apiKey} setApiKey={props.setApiKey} onChangeMode={function(version){props.setVersion(version);}}/>
+            <Dirs setPop={props.setPop} JDK_VER={props.version} apiKey={props.apiKey} setBody={props['setBody']}/>
             <Files/>
         </div>
     )

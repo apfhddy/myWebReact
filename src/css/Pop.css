@@ -7,21 +7,38 @@
 .Dir{
     position: absolute;
     background-color: white;
-    top: 100px;
-    left: 100px;
     box-shadow: 0px 0px 30px gray;
     width: 400px;
     border-radius: 5px;
+    top: 100px;
+    left: 100px;
 }
 .Dir > header{
     background-image: linear-gradient(to top,  #C4C4C4, #FFFFFF); 
     border-bottom: 2px solid gray;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    text-align: right;
+    vertical-align: middle;
+    height: 25px;
 } 
 .Dir > main{
-    height: 100px;
+    height: 300px;
 } 
+.Dir > main > table {
+    width: 70%;
+    font-size: 11px;
+    text-align: center;
+}
+.Dir > main > table > tbody > tr td:nth-child(1) {
+    width: 40%;
+}
+.Dir > main > table > tbody > tr td:nth-child(2) {
+    width: 30%;
+}
+.Dir > main > table > tbody > tr td:nth-child(3) {
+    width: 30%;
+}
 .Dir > footer{
     height: 5px;
 } 
