@@ -31,13 +31,16 @@
     text-align: center;
 }
 .Dir > main > table > tbody > tr td:nth-child(1) {
-    width: 40%;
+    width: 30%;
 }
 .Dir > main > table > tbody > tr td:nth-child(2) {
-    width: 30%;
+    width: 25%;
 }
 .Dir > main > table > tbody > tr td:nth-child(3) {
-    width: 30%;
+    width: 25%;
+}
+.Dir > main > table > tbody > tr td:nth-child(4) {
+    width: 20%;
 }
 .Dir > footer{
     height: 5px;

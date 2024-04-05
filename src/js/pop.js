@@ -6,6 +6,9 @@ import {useState,useRef,useEffect} from 'react';
 function Dir(props){
     const [dno,setDno] = useState(0);
     
+    const [css,setCss] = useState({display:'none'});
+
+
     let [items,setItems] = useState([]);
     useEffect(() => {
         axios({
@@ -13,13 +16,14 @@ function Dir(props){
             url:'/dirs/'+props.version+'/'+dno
         })
         .then((res) => {
-            console.log(props.version)
+            setCss({display:''})
             setItems(res.data);
-        })    
+        })
     },[dno,props.version])
-
+    
+    
     return(
-        <div ref={props.Ref}  className='Dir'>
+        <div ref={props.Ref}  style={css} className='Dir'>
             <header >x</header>
            <main>
                 <table>
@@ -28,9 +32,14 @@ function Dir(props){
                             <td>이름</td>
                             <td>추가 버전</td>
                             <td>삭제 버전</td>
+                            <td>수정/삭제</td>
                         </tr>
                         {items.map((item,index) => 
-                            <tr key={index}><td>{item['name']}</td></tr>
+                            <tr key={index}>
+                                <td>{item['NAME']}</td>
+                                <td>{item['ADD_VER']}</td>
+                                <td>{item['REMOVE_VER'] === 0 ? '-' : item['REMOVE_VER']}</td>
+                            </tr>
                         )}
                     </tbody>
                 </table>
