@@ -1,25 +1,9 @@
 
 import axios from 'axios';
-import '../css/Side.css'
-import {useState,useEffect} from 'react';
+import '../css/Side.css';
 
 
 function TopSettings(props){
-    const [Mode,setMode] = useState([]);
-    useEffect(() => {
-        axios({
-            url:'versions',
-            method:'get'
-        })
-        .then((res) => {
-            setMode(res.data);
-        })
-    },[])
-    
-    let list = [];
-    for(let i = 0; i < Mode.length; i++){
-        list.push(<option value={Mode[i]['real_VER']} key={i}>{Mode[i]['jdk_VER']}</option>);
-    }
     
 
     let inputCss;
@@ -66,7 +50,7 @@ function TopSettings(props){
             <div>
                 <span>java-version</span>
                 <select defaultValue={props.default_version} onChange={function(event){props.onChangeMode(event.target.value);}}>
-                    {list}
+                    {props.all_VER.map((item,index)=> <option value={item['real_VER']} key={index}>{item['real_VER']}</option>)}
                 </select>
             </div>
             <div className='Api-Certified'>
@@ -98,19 +82,6 @@ function Files(){
 } 
 
 function Dirs(props){
-    const [Mode,setMode] = useState([]);
-    
-    useEffect(() => {
-        axios({
-            url:'/dirs/'+props.JDK_VER,
-            method:'get'
-        })
-        .then((res)=>{
-            setMode(res.data);
-        })
-        
-        
-    },[props.JDK_VER])
 
     let updateDir;
 
@@ -133,7 +104,7 @@ function Dirs(props){
         <div  className='Dirs'>
             {updateDir}    
             <div>
-                {Mode.map((item,index) => <div key={index}><a href='/'  onClick={(event) => {
+                {props.sideDir.map((item,index) => <div key={index}><a href='/'  onClick={(event) => {
                     event.preventDefault();
                     props['setBody'](item['lb_D_no'])
                 }}>{item['name'].substr(1)}</a></div>)}
@@ -153,8 +124,8 @@ function Side(props){
 
     return (
         <div className='Side'>
-            <TopSettings JDK_VER={props.version} apiKey={props.apiKey} setApiKey={props.setApiKey} onChangeMode={function(version){props.setVersion(version);}}/>
-            <Dirs setPop={props.setPop} JDK_VER={props.version} apiKey={props.apiKey} setBody={props['setBody']}/>
+            <TopSettings all_VER={props.all_VER}  JDK_VER={props.version} apiKey={props.apiKey} setApiKey={props.setApiKey} onChangeMode={function(version){props.setVersion(version);}}/>
+            <Dirs sideDir={props.sideDir} setPop={props.setPop} JDK_VER={props.version} apiKey={props.apiKey} setBody={props['setBody']}/>
             <Files/>
         </div>
     )
